@@ -1,9 +1,9 @@
-print('Hello' + ' ' + 'World' + '!')
+print("Hello" + " " + "World" + "!")
 # String length function
-print(len('Hello'))
+print(len("Hello"))
 
-city = input('What is the name of the city you were born in?\n')
-pet = input('What is the name of your pet?\n')
-game_name = city + ' ' + pet
+city = input("What is the name of the city you were born in?\n")
+pet = input("What is the name of your pet?\n")
+game_name = city + " " + pet
 
 print(game_name[-1])
