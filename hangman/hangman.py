@@ -1,71 +1,10 @@
 import random
+import hangman_words
+import hangman_ascii_art
 
-stages = [
-    """
-  +---+
-  |   |
-  O   |
- /|\  |
- / \  |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
- /|\  |
- /    |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
- /|\  |
-      |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
- /|   |
-      |
-      |
-=========""",
-    """
-  +---+
-  |   |
-  O   |
-  |   |
-      |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-  O   |
-      |
-      |
-      |
-=========
-""",
-    """
-  +---+
-  |   |
-      |
-      |
-      |
-      |
-=========
-""",
-]
-
-word_list = ["ardvark", "baboon", "camel"]
+word_list = hangman_words.word_list
+stages = hangman_ascii_art.stages
+logo = hangman_ascii_art.logo
 chosen_word = random.choice(word_list)
 word_length = len(chosen_word)
 display = []
@@ -73,6 +12,7 @@ display = []
 for letter in range(word_length):
     display += "_"
 
+print(logo)
 print(f"{' '.join(display)}")
 print(f"Guess a {len(chosen_word)} letters long word by entering one letter at a time")
 
@@ -95,5 +35,5 @@ while "_" in display and lives > 0:
     if not "_" in display:
         print("Congratulations! You win!")
     elif lives == 0 and "_" in display:
-        print("You lose!")
+        print(f"You lose! The chosen word was {chosen_word}")
         print(stages[lives])
