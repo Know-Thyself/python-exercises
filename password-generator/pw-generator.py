@@ -70,16 +70,21 @@ random_letters = random.sample(letters, nr_letters)
 random_symbols = random.sample(symbols, nr_symbols)
 
 random_password = random_letters + random_nums + random_symbols
-random_pw_str = ""
-for char in random_password:
-    random_pw_str += char
-print(random_pw_str)
+generated_pw_str = "".join(random_password)
+print(f"Your generated simple password is: {generated_pw_str}")
+# Alternatively
+# generated_pw_str = ""
+# for char in random_password:
+#     generated_pw_str += char
+# print(generated_pw_str)
 
 # Hard Level - Order of characters randomised:
 # e.g. 4 letter, 2 symbol, 2 number = g^2jk8&P
-random_pw_str = ""
 mix_chars_list = random.sample(random_password, len(random_password))
-for char in mix_chars_list:
-    random_pw_str += char
+generated_pw_str = "".join(mix_chars_list)
+# Alternative solution
+# generated_pw_str = ""
+# for char in mix_chars_list:
+#     generated_pw_str += char
 
-print(random_pw_str)
+print(f"Your generated more complex password is: {generated_pw_str}")
