@@ -30,9 +30,6 @@ alphabet = [
 ]
 
 print(logo)
-direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
-text = input("Type your message:\n").lower()
-shift = int(input("Type the shift number between 1 and 25:\n"))
 
 
 def caesar(message, option, amount):
@@ -55,5 +52,15 @@ def caesar(message, option, amount):
     print(f"The {option}d message is {caesar_message}")
 
 
-print(shift)
-caesar(text, direction, shift)
+repeat_task = True
+while repeat_task:
+    direction = input("Type 'encode' to encrypt, type 'decode' to decrypt:\n")
+    text = input("Type your message:\n").lower()
+    shift = int(input("Type the shift number between 1 and 25:\n"))
+    caesar(text, direction, shift)
+    restart = input(
+        'Would you like to encode/decode more messages? Please type "yes" or "no"\n'
+    )
+    if restart == "no":
+        repeat_task = False
+        print("Thanks for using Caesar Decipher!\nGoodbye!")
