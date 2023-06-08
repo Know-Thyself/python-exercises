@@ -32,35 +32,20 @@ text = input("Type your message:\n").lower()
 shift = int(input("Type the shift number:\n"))
 
 
-def encrypt(message, amount):
-    ciphered_message = ""
+def caesar(message, option, amount):
+    caesar_message = ""
+    alphabet_length = len(alphabet)
+    if option == "decode":
+        amount *= -1
+        alphabet_length *= -1
     for letter in message:
         current_index = alphabet.index(letter)
-        if current_index + amount > 25:
-            new_index = (current_index + amount) - 26
-            letter = alphabet[new_index]
-        else:
-            letter = alphabet[current_index + amount]
-        ciphered_message += letter
-
-    print(ciphered_message)
+        new_index = new_index = current_index + amount
+        if new_index > 25 or new_index < 0:
+            new_index = current_index + amount + alphabet_length
+        letter = alphabet[new_index]
+        caesar_message += letter
+    print(f"The {option}d message is {caesar_message}")
 
 
-def decrypt(message, amount):
-    deciphered_message = ""
-    for letter in message:
-        current_index = alphabet.index(letter)
-        print(current_index)
-        if current_index - amount < 0:
-            new_index = (current_index - amount) + 26
-            letter = alphabet[new_index]
-        else:
-            letter = alphabet[current_index - amount]
-        deciphered_message += letter
-    print(deciphered_message)
-
-
-if direction == "encode":
-    encrypt(text, shift)
-elif direction == "decode":
-    decrypt(text, shift)
+caesar(text, direction, shift)
