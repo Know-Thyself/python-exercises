@@ -7,8 +7,16 @@ bidders = {}
 
 def add_bidder(name, amount):
     bidders[name] = amount
- 
- 
+
+def select_winner(participants):
+    highest_bid = 0
+    winner_name: str
+    for bidder in participants:
+        if participants[bidder] > highest_bid:
+            highest_bid = participants[bidder]
+            winner_name = bidder
+    print(f'The winner is {winner_name} and their bid was £{highest_bid}')
+    
 is_bidding_open = True
 while is_bidding_open:
     bidder_name = input('Enter your name \n')
@@ -18,17 +26,6 @@ while is_bidding_open:
  
     if more_bidder == 'no':
         is_bidding_open = False
+        select_winner(bidders)
     else:
         os.system('cls')
-
-winner = {}
-highest_bid = 0
-winner_name: str
-
-for bidder in bidders:
-    if bidders[bidder] > highest_bid:
-        highest_bid = bidders[bidder]
-        winner_name = bidder
-        winner = {winner_name: highest_bid}
-
-print(f'The winner is {winner_name} and their bid was £{highest_bid}')
