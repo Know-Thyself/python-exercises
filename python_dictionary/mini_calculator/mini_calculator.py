@@ -43,7 +43,8 @@ def calculator():
         answer = calculate(number1, number2, operation)
         print(f"{number1} {operation} {number2} = {answer}")
         more_calculations = input(
-            'Type "y" to continue calculating, "r" to restart or "n" to exit\n'
+            'Type "y" to continue calculating, "r" to '
+            'restart or "n" to exit\n'
         )
         if more_calculations == "y":
             number1 = answer

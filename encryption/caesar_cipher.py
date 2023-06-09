@@ -59,7 +59,8 @@ while repeat_task:
     shift = int(input("Type the shift number between 1 and 25:\n"))
     caesar(text, direction, shift)
     restart = input(
-        'Would you like to encode/decode more messages? Please type "yes" or "no"\n'
+        'Would you like to encode/decode more messages? Please type "yes" or '
+        '"no"\n'
     )
     if restart == "no":
         repeat_task = False
