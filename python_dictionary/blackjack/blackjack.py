@@ -66,20 +66,20 @@ def play_blackjack():
             else:
                 is_game_over = True
 
-    while computer_score != 0 and computer_score < 17:
+    while computer_score != 0 and computer_score < 17 and user_score < 21:
         computer_cards.append(deal_card())
         computer_score = calculate_score(computer_cards)
 
     print(f" Your final hand: {user_cards}, final score: {user_score}")
-    print(
-        f" Computer's final hand: {computer_cards}, final score: {computer_score}"
-    )
+    print(f" Computer's final hand: {computer_cards}, final score: {computer_score}")
     print(determine_winner(user_score, computer_score))
 
 
-is_game_started = False
-start = input("Type 'y' to start the game, type 'n' to exit\n:")
-while start == "y":
-    is_game_started = True
-    play_blackjack()
-    os.system('cls')
+should_ask_to_start = True
+while should_ask_to_start:
+    start = input("Type 'y' to start / continue playing, type 'n' to exit\n:")
+    if start == "y":
+        os.system("cls")
+        play_blackjack()
+    else:
+        should_ask_to_start = False
