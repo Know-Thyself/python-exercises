@@ -3,7 +3,7 @@ import random
 
 
 def choose_difficulty():
-    level = input('Type "easy" or "hard" to choose a difficulty level:\n')
+    level = input('Type "easy" or "hard" to choose a difficulty level: ')
     if level == "hard":
         print("You've 5 guesses to find the correct number")
         return 5
@@ -32,16 +32,15 @@ def guess_a_number():
     chosen_number = random.randint(1, 100)
 
     while number_of_guesses > 0:
-        guess = int(input("Type a positive integer between 1 and 100\n"))
+        guess = int(input("Type a positive integer between 1 and 100: "))
         compare_numbers(chosen_number, guess, number_of_guesses)
         number_of_guesses -= 1
         if chosen_number == guess:
             return
 
 
-
 def restart_game():
-    play_again = input('Type "y" to play again  or "n" to exit\n')
+    play_again = input('Type "y" to play again  or "n" to exit: ')
     if play_again == 'y':
         guess_a_number()
 
