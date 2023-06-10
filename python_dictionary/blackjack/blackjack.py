@@ -2,9 +2,6 @@ import random
 from art import logo
 import os
 
-print(logo)
-print("Welcome to Blackjack Game!")
-
 
 def deal_card():
     """Returns a random card from the deck."""
@@ -14,7 +11,7 @@ def deal_card():
 
 
 def calculate_score(list_of_cards):
-    """Take a list of cards and return the score calculated from the cards"""
+    """Takes a list of cards and return the score calculated from the sum of the cards"""
     score = sum(list_of_cards)
     if score == 21 and len(list_of_cards) == 2:
         return 0
@@ -41,11 +38,11 @@ def determine_winner(user_score, computer_score):
 
 
 def play_blackjack():
+    print(logo)
+    print("Welcome to Blackjack Game!")
     user_cards = []
     computer_cards = []
     is_game_over = False
-    computer_score = 0
-    user_score = 0
 
     for _ in range(2):
         user_cards.append(deal_card())
@@ -60,8 +57,7 @@ def play_blackjack():
         if user_score == 0 or computer_score == 0 or user_score > 21:
             is_game_over = True
         else:
-            user_should_deal = input("Type 'y' to get another card, type 'n' to pass: ")
-            if user_should_deal == "y":
+            if input("Type 'y' to get another card, type 'n' to pass: ") == "y":
                 user_cards.append(deal_card())
             else:
                 is_game_over = True
