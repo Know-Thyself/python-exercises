@@ -1,0 +1,45 @@
+from ascii_art import logo
+import random
+
+is_game_on = True
+
+
+def choose_difficulty():
+    level = input('Type "easy" or "hard" to choose a difficulty level:\n')
+    if level == "hard":
+        print("You've 5 guesses to find the correct number")
+        return 5
+    else:
+        print("You've 10 guesses to find the correct number")
+        return 10
+
+
+def compare_numbers(num1, num2, attempts):
+    if num1 == num2:
+        print("You win! You guessed the correct number!")
+        global is_game_on
+        is_game_on = False
+    elif num2 > num1:
+        print(f"Too high! Try a lower number\n You've {attempts - 1} guesses left")
+    else:
+        print(f"Too low! Try a higher number\n You've {attempts - 1} guesses left")
+
+
+def guess_a_number():
+    print("Welcome to the Number Guessing Game!")
+    print(logo)
+    number_of_guesses = choose_difficulty()
+    chosen_number = random.randint(1, 100)
+    global is_game_on
+
+    while number_of_guesses > 0 and is_game_on:
+        guess = int(input("Type a positive integer between 1 and 100\n"))
+        compare_numbers(chosen_number, guess, number_of_guesses)
+        number_of_guesses -= 1
+    play_again = input('Type "y" to play again  or "n" to exit\n')
+    if play_again == 'y':
+        is_game_on = True
+
+
+while is_game_on:
+    guess_a_number()
