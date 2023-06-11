@@ -3,7 +3,8 @@ from menu import MENU, resources
 generated_income = 0
 
 
-def machine_setup():
+def start_machine():
+    """ Starts the coffee machine and invokes check_resources() function based on the user's request. """
     order = input('What would you like? Type "espresso", "latte" or "cappuccino"): ').lower()
     # 'report' and 'off' options are intended for admins
     if order == 'report':
@@ -13,7 +14,7 @@ def machine_setup():
             else:
                 print(f'{ingredient.title()}: {resources[ingredient]}ml')
         print(f'Generated income: ${format(generated_income, ".2f")}')
-        machine_setup()
+        start_machine()
     elif order == 'off':
         # servicing the machine and refilling
         return
@@ -22,6 +23,14 @@ def machine_setup():
 
 
 def check_resources(required_ingredients, coffee_type, price):
+    """ Checks if there are sufficient ingredients and calls the process_payment() function.
+    :param required_ingredients:
+    :type required_ingredients:
+    :param coffee_type:
+    :type coffee_type:
+    :param price:
+    :type price:
+    """
     have_enough_ingredients = True
     for ingredient in required_ingredients:
         if resources[ingredient] < required_ingredients[ingredient]:
@@ -31,10 +40,18 @@ def check_resources(required_ingredients, coffee_type, price):
     if have_enough_ingredients:
         process_payment(price, coffee_type)
     else:
-        print("Sorry, we don't have enough ingredients. Please come back later.")
+        print("Sorry, we don't have enough ingredients. Restarting...")
+        start_machine()
 
 
 def process_payment(price, coffee_type):
+    """
+Checks the amount of coins inserted can cover the coffee price, returns the change and calls serve_coffee() function.
+    :param price:
+    :type price:
+    :param coffee_type:
+    :type coffee_type:
+    """
     print(f'Please pay ${format(price, ".2f")}. We only accept coins')
     quarters = int(input('How many quarters? Type a number: '))
     dimes = int(input('How many dimes? Type a number: '))
@@ -49,12 +66,19 @@ def process_payment(price, coffee_type):
 
 
 def serve_coffee(paid_amount, coffee_name):
+    """
+Serves the coffee, updates generated income and invokes the start_machine() function to repeat the cycle.
+    :param paid_amount:
+    :type paid_amount:
+    :param coffee_name:
+    :type coffee_name:
+    """
     global generated_income
     generated_income += paid_amount
     print(f"Here's your {coffee_name} ☕️. Enjoy!")
     has_more_order = input('Would you like more drinks? Type "y" for yes or "n" for no: ').lower()
     if has_more_order == 'y':
-        machine_setup()
+        start_machine()
 
 
-machine_setup()
+start_machine()
