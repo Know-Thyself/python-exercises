@@ -27,7 +27,6 @@ def check_resources(required_ingredients, coffee_type, price):
         else:
             resources[ingredient] -= required_ingredients[ingredient]
     if have_enough_ingredients:
-        print(f'Your {coffee_type} is getting prepared.')
         process_payment(price, coffee_type)
     else:
         print("Sorry, we don't have enough ingredients! Please come back later.")
