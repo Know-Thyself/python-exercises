@@ -1,35 +1,8 @@
 from ascii_art import logo
-
-alphabet = [
-    "a",
-    "b",
-    "c",
-    "d",
-    "e",
-    "f",
-    "g",
-    "h",
-    "i",
-    "j",
-    "k",
-    "l",
-    "m",
-    "n",
-    "o",
-    "p",
-    "q",
-    "r",
-    "s",
-    "t",
-    "u",
-    "v",
-    "w",
-    "x",
-    "y",
-    "z",
-]
+import string
 
 print(logo)
+alphabet = list(string.ascii_lowercase)
 
 
 def caesar(message, option, amount):

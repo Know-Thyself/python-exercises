@@ -14,12 +14,12 @@ def prime_checker(number):
 
 # Alternatively:
 def prime_number_checker(number):
-    is_Prime = True
+    is_prime = True
     for i in range(2, number):
         if number % i == 0:
-            is_Prime = False
+            is_prime = False
             break
-    if is_Prime:
+    if is_prime:
         print("It's a prime number.")
     else:
         print("It's not a prime number.")

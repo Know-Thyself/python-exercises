@@ -35,7 +35,7 @@ while "_" in display and lives > 0:
             f"The letter you guessed, {guess}, is not in the chosen word. You lose a life"
         )
     print(f"{' '.join(display)}")
-    if not "_" in display:
+    if "_" not in display:
         print("Congratulations! You win!")
     elif lives == 0 and "_" in display:
         print(f"You lose! The chosen word was {chosen_word}")

@@ -1,12 +1,10 @@
-counter = 0
-
 for number in range(1, 101):
     if number % 3 == 0 and number % 5 == 0:
-        counter = "FizzBuzz"
+        number = "FizzBuzz"
     elif number % 3 == 0:
-        counter = "Fizz"
+        number = "Fizz"
     elif number % 5 == 0:
-        counter = "Buzz"
+        number = "Buzz"
     else:
-        counter = number
-    print(counter)
+        number = number
+    print(number)
