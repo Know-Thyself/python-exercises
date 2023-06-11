@@ -4,7 +4,8 @@ generated_income = 0
 
 
 def machine_setup():
-    order = input('What would you like? (espresso/latte/cappuccino): ')
+    order = input('What would you like? Type "espresso", "latte" or "cappuccino"): ').lower()
+    # 'report' and 'off' options are intended for admins
     if order == 'report':
         for ingredient in resources:
             if ingredient == 'coffee':
@@ -14,6 +15,7 @@ def machine_setup():
         print(f'Generated income: ${format(generated_income, ".2f")}')
         machine_setup()
     elif order == 'off':
+        # servicing the machine and refilling
         return
     else:
         check_resources(MENU[order]['ingredients'], order, MENU[order]['cost'])
@@ -29,7 +31,7 @@ def check_resources(required_ingredients, coffee_type, price):
     if have_enough_ingredients:
         process_payment(price, coffee_type)
     else:
-        print("Sorry, we don't have enough ingredients! Please come back later.")
+        print("Sorry, we don't have enough ingredients. Please come back later.")
 
 
 def process_payment(price, coffee_type):
@@ -42,7 +44,7 @@ def process_payment(price, coffee_type):
     if total_paid < price:
         print(f"Insufficient amount here's your money: {total_paid}")
     else:
-        print(f"Here's your change: ${round(total_paid - price, 2)}. Your {coffee_type} will be served shortly...")
+        print(f"Here's your change: ${format(total_paid - price, '.2f')}. Your {coffee_type} will be served shortly...")
         serve_coffee(price, coffee_type)
 
 
@@ -50,7 +52,7 @@ def serve_coffee(paid_amount, coffee_name):
     global generated_income
     generated_income += paid_amount
     print(f"Here's your {coffee_name} ☕️. Enjoy!")
-    has_more_order = input('Would you like more drinks? Type "y" for yes or "n" for no: ')
+    has_more_order = input('Would you like more drinks? Type "y" for yes or "n" for no: ').lower()
     if has_more_order == 'y':
         machine_setup()
 
