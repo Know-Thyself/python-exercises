@@ -4,7 +4,9 @@ generated_income = 0
 
 
 def start_machine():
-    """ Starts the coffee machine and invokes check_resources() function based on the user's request. """
+    """
+    Starts the coffee machine, asks for user inputs and invokes check_resources() function.
+    """
     order = input('What would you like? Type "espresso", "latte" or "cappuccino"): ').lower()
     # 'report' and 'off' options are intended for admins
     if order == 'report':
@@ -23,13 +25,14 @@ def start_machine():
 
 
 def check_resources(required_ingredients, coffee_type, price):
-    """ Checks if there are sufficient ingredients and calls the process_payment() function.
+    """
+    Checks if there are sufficient ingredients and calls the process_payment() function.
     :param required_ingredients:
-    :type required_ingredients:
+    :type required_ingredients: dict
     :param coffee_type:
-    :type coffee_type:
+    :type coffee_type: str
     :param price:
-    :type price:
+    :type price: int
     """
     have_enough_ingredients = True
     for ingredient in required_ingredients:
@@ -46,11 +49,12 @@ def check_resources(required_ingredients, coffee_type, price):
 
 def process_payment(price, coffee_type):
     """
-Checks the amount of coins inserted can cover the coffee price, returns the change and calls serve_coffee() function.
+    Checks if the amount of coins inserted can cover the coffee price, returns the change and calls serve_coffee()
+    function.
     :param price:
-    :type price:
+    :type price: int
     :param coffee_type:
-    :type coffee_type:
+    :type coffee_type: str
     """
     print(f'Please pay ${format(price, ".2f")}. We only accept coins')
     quarters = int(input('How many quarters? Type a number: '))
@@ -67,11 +71,11 @@ Checks the amount of coins inserted can cover the coffee price, returns the chan
 
 def serve_coffee(paid_amount, coffee_name):
     """
-Serves the coffee, updates generated income and invokes the start_machine() function to repeat the cycle.
+    Serves the coffee, updates generated income and invokes the start_machine() function to repeat the cycle.
     :param paid_amount:
-    :type paid_amount:
+    :type paid_amount: int
     :param coffee_name:
-    :type coffee_name:
+    :type coffee_name: str
     """
     global generated_income
     generated_income += paid_amount
