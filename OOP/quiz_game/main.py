@@ -1,6 +1,7 @@
 from quiz_brain import QuestionsAndAnswers
 
 questions_and_answers = QuestionsAndAnswers()
+q_and_a_list = questions_and_answers.get_questions()
 
 
 def start_quiz():
@@ -18,9 +19,13 @@ def start_quiz():
         else:
             print(f"Wrong answer!\nYour score is {score}/{current_question.question_number}")
             print(f"The correct answer was: {current_question.answer}")
-        next_question = input("Type 'n' to go to the next question or 'e' to exit: ")
-        if next_question != "n":
-            is_game_on = False
+        if current_question.question_number == len(q_and_a_list):
+            print(f"You've finished all the questions! Your final score is: {score}/{current_question.question_number}")
+            is_repeating = input("Would you like to go again? Type 'y' for yes or 'n' to exit: ")
+            if is_repeating != "y":
+                is_game_on = False
+            else:
+                current_question = questions_and_answers.get_first_question(current_question)
         else:
             current_question = questions_and_answers.get_next_question(current_question)
 

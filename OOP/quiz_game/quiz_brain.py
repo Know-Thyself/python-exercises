@@ -30,4 +30,4 @@ class QuestionsAndAnswers:
 
     def check_answer(self, q, a):
         question_to_check = self.list[self.list.index(q)]
-        return question_to_check.answer == a
+        return question_to_check.answer.lower() == a.lower()
