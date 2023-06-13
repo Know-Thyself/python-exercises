@@ -12,6 +12,7 @@ master_oogway.pencolor("brown")
 #     master_oogway.forward(10)
 #     master_oogway.penup()
 #     master_oogway.forward(10)
+
 master_oogway.penup()
 master_oogway.setx(-50)
 master_oogway.sety(150)
