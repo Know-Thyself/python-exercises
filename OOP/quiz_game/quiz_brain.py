@@ -1,14 +1,16 @@
 from question_model import QuestionAndAnswer
 from data import question_data
+from api_data import general_knowledge_q_and_a
 import random
+import html
 
 
 class QuestionsAndAnswers:
     def __init__(self):
         self.list = []
-        for index, item in enumerate(question_data):
-            q = item['text']
-            a = item['answer']
+        for index, item in enumerate(general_knowledge_q_and_a):
+            q = html.unescape(item['question'])
+            a = item['correct_answer']
             new_question = QuestionAndAnswer(index + 1, q, a)
             self.list.append(new_question)
 
