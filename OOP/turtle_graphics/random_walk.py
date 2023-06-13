@@ -4,7 +4,7 @@ import random
 random_walker = turtle.Turtle()
 directions = [0, 90, 180, 270]
 random_walker.pensize(10)
-random_walker.speed('fast')
+random_walker.speed('fastest')
 turtle.colormode(255)
 
 
@@ -21,5 +21,5 @@ for _ in range(300):
     random_walker.forward(40)
     random_walker.setheading(random.choice(directions))
 
-screen = turtle.Screen()
-screen.exitonclick()
+# screen = turtle.Screen()
+# screen.exitonclick()
