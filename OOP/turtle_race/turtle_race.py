@@ -6,7 +6,6 @@ screen.setup(width=600, height=400)
 
 turtle_colors = ["purple", "green", "red", "blue", "orange", "brown"]
 turtles = []
-is_race_on = False
 
 
 def create_turtles(colors, x, y):
@@ -33,11 +32,11 @@ def start_race(racers):
     return winner_color
 
 
-user_bet = screen.textinput(title="Make a bet", prompt="Which turtle will win? \nEnter your prediction: purple/green/red/blue/orange/brown")
+user_bet = screen.textinput(title="Make a bet", prompt="Which turtle will win? \nEnter your prediction: purple/green/red/blue/orange/brown ")
 if user_bet:
     winner = start_race(turtles)
     if user_bet == winner:
-        print(f"You won! {winner} is the winner.")
+        print(f"You've won! {winner} is the winner.")
     else:
         print(f"You've lost {winner} is the winner.")
 
