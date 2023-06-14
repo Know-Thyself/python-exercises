@@ -28,8 +28,28 @@ def draw_dot_painting(space, num_of_dots):
         painter.left(90)
 
 
-painter.penup()
+def draw_hirst_painting(num_of_dots, size, space):
+    direction = 'right'
+    for _ in range(num_of_dots):
+        for _ in range(num_of_dots):
+            painter.dot(size, random.choice(rgb_colors))
+            painter.forward(space)
+        if direction == 'right':
+            painter.right(90)
+            painter.forward(space)
+            painter.right(90)
+            painter.forward(space)
+            direction = 'left'
+        else:
+            painter.left(90)
+            painter.forward(space)
+            painter.left(90)
+            painter.forward(space)
+            direction = 'right'
+
+
+draw_hirst_painting(10, 20, 30)
+# draw_dot_painting(30, 10)
 painter.hideturtle()
-draw_dot_painting(30, 10)
 screen.exitonclick()
 
