@@ -6,15 +6,23 @@ painter = turtle.Turtle()
 screen = turtle.Screen()
 turtle.colormode(255)
 painter.penup()
-painter.setx(-140);
-painter.sety(150)
-screen.bgcolor('medium slate blue')
 
 rgb_colors = []
 colors = colorgram.extract('colorful_img.jpg', 78)
 
 for color in colors:
     rgb_colors.append(color.rgb)
+
+screen.bgcolor(random.choice(rgb_colors))
+
+
+def draw_dots(dots, x, y, size, space):
+    for _ in range(dots):
+        painter.goto(x, y)
+        for _ in range(dots):
+            painter.dot(size, random.choice(rgb_colors))
+            painter.forward(space)
+        y -= space
 
 
 def draw_dot_painting(space, num_of_dots):
@@ -48,8 +56,10 @@ def draw_hirst_painting(num_of_dots, size, space):
             direction = 'right'
 
 
-draw_hirst_painting(10, 20, 30)
+painter.home()
+# draw_hirst_painting(10, 20, 30)
 # draw_dot_painting(30, 10)
+draw_dots(10, -140, 150,20, 30)
 painter.hideturtle()
 screen.exitonclick()
 
