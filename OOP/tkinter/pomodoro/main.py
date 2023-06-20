@@ -14,23 +14,40 @@ keep_timer_going = True
 
 
 # ---------------------------- COUNTDOWN MECHANISM ------------------------------- #
+def countdown_with_timeout(sec, is_working_hour):
+    if keep_timer_going:
+        if sec == 0 and is_working_hour:
+            completed_cycles["text"] += CHECKMARK
+            completed_rounds = len(completed_cycles["text"])
+            if completed_rounds % 4 == 0:
+                print('4 x 25 minutes work done. Enjoy your 20 minutes break!')
+                long_break()
+            else:
+                print('25 minutes Completed. Enjoy your 5 minutes break!')
+                short_break()
+        elif sec == 0 and not is_working_hour:
+            countdown()
+        minutes, seconds = divmod(sec, 60)
+        timer = '{:02d}:{:02d}'.format(minutes, seconds)
+        print(f"00:{timer}")
+        canvas.itemconfig(canvas_text, text=f"00:{timer}")
+        if sec > 0:
+            root.after(1000, countdown_with_timeout, sec - 1, is_working_hour)
+
+
+def short_break():
+    seconds = SHORT_BREAK_MIN * 60
+    countdown_with_timeout(seconds, False)
+
+
+def long_break():
+    seconds = LONG_BREAK_MIN * 60
+    countdown_with_timeout(seconds, False)
+
+
 def countdown():
-    # t = 25 * 60
-    t = 30
-
-    def countdown_with_timeout(sec):
-        if keep_timer_going:
-            if sec == 0:
-                completed_cycles["text"] += CHECKMARK
-                sec = 5
-            minutes, seconds = divmod(sec, 60)
-            timer = '{:02d}:{:02d}'.format(minutes, seconds)
-            print(f"00:{timer}")
-            canvas.itemconfig(canvas_text, text=f"00:{timer}")
-            root.after(1000, countdown_with_timeout, sec - 1)
-
-    countdown_with_timeout(t)
-    print('25 minutes Completed. Enjoy your 5 minutes break!')
+    time_in_seconds = WORK_MIN * 60
+    countdown_with_timeout(time_in_seconds, True)
 
 
 # ---------------------------- TIMER RESET ------------------------------- #
@@ -44,7 +61,6 @@ def reset_timer():
 # ---------------------------- UI SETUP ------------------------------- #
 root = tk.Tk()
 root.title("Pomodoro Technique")
-# root.geometry("400x448")
 root.config(padx=100, pady=40, bg=YELLOW)
 label = tk.Label(text="Timer", font=(FONT_NAME, 32, "bold"), fg=GREEN)
 label.pack()
