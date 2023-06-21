@@ -1,10 +1,10 @@
 import pandas
+alphabet_df = pandas.read_csv("nato_phonetic_alphabet.csv")
+new_dict = {row.letter: row.code for (index, row) in alphabet_df.iterrows()}
 
 
 def generate_nato_phonetic_words():
-    alphabet_df = pandas.read_csv("nato_phonetic_alphabet.csv")
     name = list(input("What is your name: "))
-    new_dict = {row.letter: row.code for (index, row) in alphabet_df.iterrows()}
     try:
         nato_phonetic_name = [new_dict[letter.upper()] for letter in name if letter != ' ']
     except KeyError:
