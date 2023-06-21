@@ -1,14 +1,13 @@
 from bs4 import BeautifulSoup
 import requests
 import json
+from movie import Movie
 
 response = requests.get("https://www.timeout.com/film/best-movies-of-all-time").text
 soup = BeautifulSoup(response, "html.parser")
 movies_soup = soup.find_all(class_="_h3_cuogz_1")
 images_soup = soup.find_all(name="img")
 summaries_soup = soup.find_all(class_="_summary_kc5qn_21")
-print(summaries_soup)
-
 
 titles = []
 images = []
@@ -28,13 +27,14 @@ for summary in summaries_soup:
 
 # Generating dictionaries of movies
 for i in range(100):
-    movies_dict = {}
     temp_list = titles[i].split()
-    movies_dict["title"] = " ".join(temp_list[1:])
-    movies_dict["image"] = images[1:][i]
-    movies_dict["rank"] = int(temp_list[0].replace(".", ""))
-    movies_dict["summary"] = summaries[i]
-    list_of_dict.append(movies_dict)
+    title = " ".join(temp_list[1:])
+    image = images[1:][i]
+    rank = int(temp_list[0].replace(".", ""))
+    summary = summaries[i]
+    movie = Movie(i + 1, title, image, rank, summary)
+    movie_obj = movie.get_movie_object()
+    list_of_dict.append(movie_obj)
 
 json_object = json.dumps(list_of_dict, indent=4)
 with open("movies.json", "w") as file:
