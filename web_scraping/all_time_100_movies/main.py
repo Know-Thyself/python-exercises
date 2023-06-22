@@ -5,22 +5,22 @@ from movie import Movie
 
 response = requests.get("https://www.timeout.com/film/best-movies-of-all-time").text
 soup = BeautifulSoup(response, "html.parser")
-movies_soup = soup.find_all(class_="_h3_cuogz_1")
-images_soup = soup.find_all(name="img")
-summaries_soup = soup.find_all(class_="_summary_kc5qn_21")
+titles = soup.find_all(class_="_h3_cuogz_1")
+images = soup.find_all(name="img")
+summaries = soup.find_all(class_="_summary_kc5qn_21")
 images = [
-    img.get("src") for img in images_soup[1:] if not img.get("src").startswith("data")
+    img.get("src") for img in images[1:] if not img.get("src").startswith("data")
 ]
 
 movies = []
 
 # Creating a movie instance and list
 for i in range(100):
-    temp_list = movies_soup[i].text.split()
+    temp_list = titles[i].text.split()
     title = " ".join(temp_list[1:])
     rank = int(temp_list[0].replace(".", ""))
     image = images[i]
-    summary = summaries_soup[i].text
+    summary = summaries[i].text
     movie = Movie(i + 1, title, image, rank, summary)
     movies.append(vars(movie))
 
