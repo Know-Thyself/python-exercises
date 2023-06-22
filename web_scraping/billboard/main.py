@@ -3,7 +3,7 @@ import requests
 import json
 import csv
 
-date = input("Which day do you want to travel to back in time? Please use this format YYYY-MM-DD: ")
+date = input("Which day do you want to travel back in time? Please use this format YYYY-MM-DD: ")
 
 response = requests.get(f"https://www.billboard.com/charts/hot-100/{date}").text
 soup = BeautifulSoup(response, "html.parser")
