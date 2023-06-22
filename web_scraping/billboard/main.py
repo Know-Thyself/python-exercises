@@ -25,7 +25,7 @@ with open("billboard.json", "w") as json_file:
     json_file.write(jsonify)
 
 # Writing csv file
-field_names = ["rank", "song", "artist"]
+field_names = list(songs[0].keys())
 with open('billboard.csv', 'w', encoding='UTF8', newline='') as csv_file:
     writer = csv.DictWriter(csv_file, fieldnames=field_names)
     writer.writeheader()
