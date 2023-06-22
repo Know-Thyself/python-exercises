@@ -14,6 +14,7 @@ images = [
 
 movies = []
 
+# Creating a movie instance and list
 for i in range(100):
     temp_list = movies_soup[i].text.split()
     title = " ".join(temp_list[1:])
@@ -21,13 +22,14 @@ for i in range(100):
     image = images[i]
     summary = summaries_soup[i].text
     movie = Movie(i + 1, title, image, rank, summary)
-    movies.append(movie.description)
+    movies.append(vars(movie))
 
+# Creating a json file
 json_object = json.dumps(movies, indent=4)
 with open("movies.json", "w") as file:
     file.write(json_object)
 
-# Writing a text file
+# Creating a text file
 write_text_file = open("movies.txt", "w")
 for movie in movies:
     line = f"{movie['rank']}. {movie['title']}"
