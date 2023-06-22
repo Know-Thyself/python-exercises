@@ -1,0 +1,502 @@
+[
+    {
+        "rank": 1,
+        "song": "I Knew You Were Waiting (For Me)",
+        "artist": "Aretha Franklin & George Michael"
+    },
+    {
+        "rank": 2,
+        "song": "Nothing's Gonna Stop Us Now",
+        "artist": "Starship"
+    },
+    {
+        "rank": 3,
+        "song": "Don't Dream It's Over",
+        "artist": "Crowded House"
+    },
+    {
+        "rank": 4,
+        "song": "Sign 'O' The Times",
+        "artist": "Prince"
+    },
+    {
+        "rank": 5,
+        "song": "Midnight Blue",
+        "artist": "Lou Gramm"
+    },
+    {
+        "rank": 6,
+        "song": "Looking For A New Love",
+        "artist": "Jody Watley"
+    },
+    {
+        "rank": 7,
+        "song": "Lean On Me",
+        "artist": "Club Nouveau"
+    },
+    {
+        "rank": 8,
+        "song": "The Finer Things",
+        "artist": "Steve Winwood"
+    },
+    {
+        "rank": 9,
+        "song": "Come Go With Me",
+        "artist": "Expose"
+    },
+    {
+        "rank": 10,
+        "song": "(I Just) Died In Your Arms",
+        "artist": "Cutting Crew"
+    },
+    {
+        "rank": 11,
+        "song": "Walking Down Your Street",
+        "artist": "The Bangles"
+    },
+    {
+        "rank": 12,
+        "song": "La Isla Bonita",
+        "artist": "Madonna"
+    },
+    {
+        "rank": 13,
+        "song": "With Or Without You",
+        "artist": "U2"
+    },
+    {
+        "rank": 14,
+        "song": "Tonight, Tonight, Tonight",
+        "artist": "Genesis"
+    },
+    {
+        "rank": 15,
+        "song": "Stone Love",
+        "artist": "Kool & The Gang"
+    },
+    {
+        "rank": 16,
+        "song": "Dominoes",
+        "artist": "Robbie Nevil"
+    },
+    {
+        "rank": 17,
+        "song": "Let's Go!",
+        "artist": "Wang Chung"
+    },
+    {
+        "rank": 18,
+        "song": "Come As You Are",
+        "artist": "Peter Wolf"
+    },
+    {
+        "rank": 19,
+        "song": "What's Going On",
+        "artist": "Cyndi Lauper"
+    },
+    {
+        "rank": 20,
+        "song": "Can'tcha Say (You Believe In Me)/Still In Love",
+        "artist": "Boston"
+    },
+    {
+        "rank": 21,
+        "song": "Heat Of The Night",
+        "artist": "Bryan Adams"
+    },
+    {
+        "rank": 22,
+        "song": "Smoking Gun",
+        "artist": "The Robert Cray Band"
+    },
+    {
+        "rank": 23,
+        "song": "The Honeythief",
+        "artist": "Hipsway"
+    },
+    {
+        "rank": 24,
+        "song": "The Lady In Red",
+        "artist": "Chris de Burgh"
+    },
+    {
+        "rank": 25,
+        "song": "Serious",
+        "artist": "Donna Allen"
+    },
+    {
+        "rank": 26,
+        "song": "Let's Wait Awhile",
+        "artist": "Janet Jackson"
+    },
+    {
+        "rank": 27,
+        "song": "The Final Countdown",
+        "artist": "Europe"
+    },
+    {
+        "rank": 28,
+        "song": "Talk Dirty To Me",
+        "artist": "Poison"
+    },
+    {
+        "rank": 29,
+        "song": "What You Get Is What You See",
+        "artist": "Tina Turner"
+    },
+    {
+        "rank": 30,
+        "song": "Ship Of Fools (Save Me From Tomorrow)",
+        "artist": "World Party"
+    },
+    {
+        "rank": 31,
+        "song": "Big Love",
+        "artist": "Fleetwood Mac"
+    },
+    {
+        "rank": 32,
+        "song": "Nothing's Gonna Change My Love For You",
+        "artist": "Glenn Medeiros"
+    },
+    {
+        "rank": 33,
+        "song": "Mandolin Rain",
+        "artist": "Bruce Hornsby & The Range"
+    },
+    {
+        "rank": 34,
+        "song": "Right On Track",
+        "artist": "The Breakfast Club"
+    },
+    {
+        "rank": 35,
+        "song": "I Know What I Like",
+        "artist": "Huey Lewis & The News"
+    },
+    {
+        "rank": 36,
+        "song": "Light Of Day",
+        "artist": "The Barbusters (Joan Jett And The Blackhearts)"
+    },
+    {
+        "rank": 37,
+        "song": "Se La",
+        "artist": "Lionel Richie"
+    },
+    {
+        "rank": 38,
+        "song": "I Will Be There",
+        "artist": "Glass Tiger"
+    },
+    {
+        "rank": 39,
+        "song": "You Keep Me Hangin' On",
+        "artist": "Kim Wilde"
+    },
+    {
+        "rank": 40,
+        "song": "The Right Thing",
+        "artist": "Simply Red"
+    },
+    {
+        "rank": 41,
+        "song": "If She Would Have Been Faithful. . .",
+        "artist": "Chicago"
+    },
+    {
+        "rank": 42,
+        "song": "Always",
+        "artist": "Atlantic Starr"
+    },
+    {
+        "rank": 43,
+        "song": "Somewhere Out There (From \"An American Tail\")",
+        "artist": "Linda Ronstadt & James Ingram"
+    },
+    {
+        "rank": 44,
+        "song": "Get That Love",
+        "artist": "Thompson Twins"
+    },
+    {
+        "rank": 45,
+        "song": "You Can Call Me Al",
+        "artist": "Paul Simon"
+    },
+    {
+        "rank": 46,
+        "song": "Wanted Dead Or Alive",
+        "artist": "Bon Jovi"
+    },
+    {
+        "rank": 47,
+        "song": "Show Me",
+        "artist": "The Cover Girls"
+    },
+    {
+        "rank": 48,
+        "song": "Heartbreak Beat",
+        "artist": "Psychedelic Furs"
+    },
+    {
+        "rank": 49,
+        "song": "As We Lay",
+        "artist": "Shirley Murdock"
+    },
+    {
+        "rank": 50,
+        "song": "Meet Me Half Way",
+        "artist": "Kenny Loggins"
+    },
+    {
+        "rank": 51,
+        "song": "Day-In Day-Out",
+        "artist": "David Bowie"
+    },
+    {
+        "rank": 52,
+        "song": "Brass Monkey",
+        "artist": "Beastie Boys"
+    },
+    {
+        "rank": 53,
+        "song": "Boom Boom (Let's Go Back To My Room)",
+        "artist": "Paul Lekakis"
+    },
+    {
+        "rank": 54,
+        "song": "Fascinated",
+        "artist": "Company B"
+    },
+    {
+        "rank": 55,
+        "song": "Keep Your Eye On Me",
+        "artist": "Herb Alpert"
+    },
+    {
+        "rank": 56,
+        "song": "You Got It All",
+        "artist": "The Jets"
+    },
+    {
+        "rank": 57,
+        "song": "That Ain't Love",
+        "artist": "REO Speedwagon"
+    },
+    {
+        "rank": 58,
+        "song": "Diamonds",
+        "artist": "Herb Alpert"
+    },
+    {
+        "rank": 59,
+        "song": "Just To See Her",
+        "artist": "Smokey Robinson"
+    },
+    {
+        "rank": 60,
+        "song": "Head To Toe",
+        "artist": "Lisa Lisa And Cult Jam"
+    },
+    {
+        "rank": 61,
+        "song": "There's Nothing Better Than Love",
+        "artist": "Luther Vandross with Gregory Hines"
+    },
+    {
+        "rank": 62,
+        "song": "Lessons In Love",
+        "artist": "Level 42"
+    },
+    {
+        "rank": 63,
+        "song": "I Got The Feelin' (It's Over)",
+        "artist": "Gregory Abbott"
+    },
+    {
+        "rank": 64,
+        "song": "The Secret Of My Success",
+        "artist": "Night Ranger"
+    },
+    {
+        "rank": 65,
+        "song": "Big Time",
+        "artist": "Peter Gabriel"
+    },
+    {
+        "rank": 66,
+        "song": "It's Tricky",
+        "artist": "Run-D.M.C."
+    },
+    {
+        "rank": 67,
+        "song": "Same Ole Love (365 Days A Year)",
+        "artist": "Anita Baker"
+    },
+    {
+        "rank": 68,
+        "song": "Livin' On A Prayer",
+        "artist": "Bon Jovi"
+    },
+    {
+        "rank": 69,
+        "song": "Living In A Dream",
+        "artist": "Pseudo Echo"
+    },
+    {
+        "rank": 70,
+        "song": "Jacob's Ladder",
+        "artist": "Huey Lewis & The News"
+    },
+    {
+        "rank": 71,
+        "song": "Songbird",
+        "artist": "Kenny G"
+    },
+    {
+        "rank": 72,
+        "song": "Never Enough",
+        "artist": "Patty Smyth"
+    },
+    {
+        "rank": 73,
+        "song": "I'm No Angel",
+        "artist": "The Gregg Allman Band"
+    },
+    {
+        "rank": 74,
+        "song": "Young Blood",
+        "artist": "Bruce Willis"
+    },
+    {
+        "rank": 75,
+        "song": "Don't Give Up",
+        "artist": "Peter Gabriel/Kate Bush"
+    },
+    {
+        "rank": 76,
+        "song": "I Wanna Go Back",
+        "artist": "Eddie Money"
+    },
+    {
+        "rank": 77,
+        "song": "I'll Be Alright Without You",
+        "artist": "Journey"
+    },
+    {
+        "rank": 78,
+        "song": "Endless Nights",
+        "artist": "Eddie Money"
+    },
+    {
+        "rank": 79,
+        "song": "Winner Takes It All",
+        "artist": "Sammy Hagar"
+    },
+    {
+        "rank": 80,
+        "song": "Baby Grand",
+        "artist": "Billy Joel featuring Ray Charles"
+    },
+    {
+        "rank": 81,
+        "song": "I'll Still Be Loving You",
+        "artist": "Restless Heart"
+    },
+    {
+        "rank": 82,
+        "song": "Brand New Lover",
+        "artist": "Dead Or Alive"
+    },
+    {
+        "rank": 83,
+        "song": "Sexappeal",
+        "artist": "Georgio"
+    },
+    {
+        "rank": 84,
+        "song": "Don't Disturb This Groove",
+        "artist": "The System"
+    },
+    {
+        "rank": 85,
+        "song": "Should I See",
+        "artist": "Frozen Ghost"
+    },
+    {
+        "rank": 86,
+        "song": "Battleship Chains",
+        "artist": "The Georgia Satellites"
+    },
+    {
+        "rank": 87,
+        "song": "Will You Still Love Me?",
+        "artist": "Chicago"
+    },
+    {
+        "rank": 88,
+        "song": "Wild Horses",
+        "artist": "Gino Vannelli"
+    },
+    {
+        "rank": 89,
+        "song": "Shy Girl",
+        "artist": "Stacey Q"
+    },
+    {
+        "rank": 90,
+        "song": "He Wants My Body",
+        "artist": "Starpoint"
+    },
+    {
+        "rank": 91,
+        "song": "We Are What We Are",
+        "artist": "The Other Ones"
+    },
+    {
+        "rank": 92,
+        "song": "We Connect",
+        "artist": "Stacey Q"
+    },
+    {
+        "rank": 93,
+        "song": "Black Dog",
+        "artist": "Newcity Rockers"
+    },
+    {
+        "rank": 94,
+        "song": "Go See The Doctor",
+        "artist": "Kool Moe Dee"
+    },
+    {
+        "rank": 95,
+        "song": "One Simple Thing",
+        "artist": "Stabilizers"
+    },
+    {
+        "rank": 96,
+        "song": "How Much Love",
+        "artist": "Survivor"
+    },
+    {
+        "rank": 97,
+        "song": "Respect Yourself",
+        "artist": "Bruce Willis"
+    },
+    {
+        "rank": 98,
+        "song": "Candy",
+        "artist": "Cameo"
+    },
+    {
+        "rank": 99,
+        "song": "Dance",
+        "artist": "Ratt"
+    },
+    {
+        "rank": 100,
+        "song": "(You Gotta) Fight For Your Right (To Party!)",
+        "artist": "Beastie Boys"
+    }
+]
