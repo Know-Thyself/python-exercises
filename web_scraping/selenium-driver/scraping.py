@@ -2,7 +2,9 @@ from selenium import webdriver
 from selenium.webdriver.common.by import By
 import csv
 
-driver = webdriver.Chrome()
+options = webdriver.ChromeOptions()
+options.add_experimental_option("detach", True)
+driver = webdriver.Chrome(options=options)
 url = "https://www.amazon.com/Apple-MacBook-Laptop-12%E2%80%91core-30%E2%80%91core/dp/B0BSHFCF13/ref=sr_1_3?keywords" \
       "=macbook+pro+2022+laptop&sr=8-3"
 driver.get(url)
@@ -35,5 +37,4 @@ with open('upcoming_events.csv', 'w', encoding='UTF8', newline='') as csv_file:
     writer.writeheader()
     writer.writerows(events)
 
-driver.close()
-driver.quit()
+# driver.close()
