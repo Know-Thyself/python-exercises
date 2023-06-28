@@ -1,18 +1,7 @@
-# Global variable
-current_board = [' '] * 10
-
-
 def welcome_display():
-    board_chars = ['#', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X']
     print('Welcome to Tic Tac Toe Board Game!')
-    display_board(board_chars)
-    game_setup(current_board)
-
-
-def game_setup(board):
-    print('Current Board:')
-    display_board(board)
-    player_input()
+    display_board(['#', 'X', 'O', 'X', 'O', 'X', 'O', 'X', 'O', 'X'])
+    game_setup([' '] * 10)
 
 
 def display_board(board):
@@ -30,15 +19,20 @@ def display_row(row):
             print(item + '|')
 
 
-def player_input():
-    global current_board
+def game_setup(board):
+    print('Current Board:')
+    display_board(board)
+    player_input(board)
+
+
+def player_input(board):
     # Player one gets to choose marker
     player_one, player_two = validate_player_marker()
     # Player two gets to make the first move
     player_two_position = validate_players_move(player_two)
-    current_board[player_two_position] = player_two
-    display_board(current_board)
-    next_player(player_one)
+    board[player_two_position] = player_two
+    display_board(board)
+    next_player(player_one, board)
 
 
 def validate_player_marker():
@@ -63,39 +57,37 @@ def validate_players_move(player):
     return player_position
 
 
-def next_player(player):
-    global current_board
+def next_player(player, board):
     player_position = validate_players_move(player)
-    current_board[player_position] = player
-    display_board(current_board)
-    game_status(player)
+    board[player_position] = player
+    display_board(board)
+    game_status(player, board)
 
 
-def game_status(player):
-    global current_board
+def game_status(player, board):
     # Check if either vertical, horizontal or diagonal lines values are identical
-    if does_win(current_board[1:4]) \
-            or does_win(current_board[4:7]) \
-            or does_win(current_board[7:]) \
-            or does_win(current_board[1:8:3]) \
-            or does_win(current_board[2:9:3]) \
-            or does_win(current_board[3::3]) \
-            or does_win(current_board[1::4]) \
-            or does_win(current_board[3:8:2]):
+    if does_win(board[1:4]) \
+            or does_win(board[4:7]) \
+            or does_win(board[7:]) \
+            or does_win(board[1:8:3]) \
+            or does_win(board[2:9:3]) \
+            or does_win(board[3::3]) \
+            or does_win(board[1::4]) \
+            or does_win(board[3:8:2]):
         print(f'Player {player} wins!')
         play_again = input('Enter "Y" to play again or "N" to exit: ').lower()
         if play_again == 'y':
             reset()
-    elif ' ' not in current_board[1:]:
+    elif ' ' not in board[1:]:
         print("It's a cat's game! No one wins.")
         play_again = input('Enter "Y" to play again or "N" to exit: ').lower()
         if play_again == 'y':
             reset()
     else:
         if player == 'X':
-            next_player('O')
+            next_player('O', board)
         else:
-            next_player('X')
+            next_player('X', board)
 
 
 def does_win(lst):
@@ -111,9 +103,7 @@ def does_win(lst):
 
 
 def reset():
-    global current_board
-    current_board = [' '] * 10
-    game_setup(current_board)
+    game_setup([' '] * 10)
 
 
 if __name__ == '__main__':
