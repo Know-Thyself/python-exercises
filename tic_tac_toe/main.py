@@ -27,38 +27,37 @@ def game_setup(board):
 
 def player_input(board):
     # Player one gets to choose marker
-    player_one, player_two = validate_player_marker()
+    player_one, player_two = validate_inputs(input_type='marker')
     # Player two gets to make the first move
-    player_two_position = validate_players_move(player_two)
+    player_two_position = validate_inputs(input_type='position', player=player_two)
     board[player_two_position] = player_two
     display_board(board)
     next_player(player_one, board)
 
 
-def validate_player_marker():
-    player_one = ''
-    player_two = ''
-    while player_one not in ['X', 'O']:
-        player_one = input('Please enter "X" or "O" as your marker: ').upper()
-        if player_one == 'X':
-            player_two = 'O'
-        else:
-            player_two = 'X'
-    return player_one, player_two
-
-
-def validate_players_move(player):
-    player_position = 'Not a number'
-    while player_position not in range(1, 10):
-        player_position = input(
-            f'You are {player}. Please chose your position (1 - 9): ')
-        if player_position.isnumeric():
-            player_position = int(player_position)
-    return player_position
+def validate_inputs(**kwargs):
+    match (kwargs['input_type']):
+        case 'marker':
+            player_one = ''
+            player_two = ''
+            while player_one not in ['X', 'O']:
+                player_one = input('Please enter "X" or "O" as your marker: ').upper()
+                if player_one == 'X':
+                    player_two = 'O'
+                else:
+                    player_two = 'X'
+            return player_one, player_two
+        case 'position':
+            player_position = 'Not a number'
+            while player_position not in range(1, 10):
+                player_position = input('You are {}. Please chose your position (1 - 9): '.format(kwargs['player']))
+                if player_position.isnumeric():
+                    player_position = int(player_position)
+            return player_position
 
 
 def next_player(player, board):
-    player_position = validate_players_move(player)
+    player_position = validate_inputs(input_type='position', player=player)
     board[player_position] = player
     display_board(board)
     game_status(player, board)
