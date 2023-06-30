@@ -4,6 +4,7 @@ player_one = Player('player_one')
 player_two = Player('player_two')
 deck_of_cards = Deck()
 deck_of_cards.shuffle()
+round_count = 0
 
 for _ in range(26):
     player_one.add_cards(deck_of_cards.deal())
@@ -13,6 +14,9 @@ for _ in range(26):
 def play_one_card():
     is_war = False
     while not is_game_over() and not is_war:
+        global round_count
+        round_count += 1
+        print(f'{round_count} round peace')
         player_one_card = player_one.remove_one()
         player_two_card = player_two.remove_one()
         cards_on_the_table = [player_one_card, player_two_card]
@@ -33,24 +37,26 @@ def play_one_card():
 def play_war_card(table):
     player1_cards = []
     player2_cards = []
+    global round_count
+    round_count += 1
+    print(f'{round_count} round war')
     for _ in range(5):
         player1_cards.append(player_one.remove_one())
         player2_cards.append(player_two.remove_one())
-        table.append(player1_cards[-1])
-        table.append(player2_cards[-1])
+    updated_table = [*table, *player1_cards, *player2_cards]
 
     if player1_cards[-1].value > player2_cards[-1].value:
-        player_one.add_cards(table)
+        player_one.add_cards(updated_table)
         if not is_game_over() and have_sufficient_cards(game_state='normal'):
             play_one_card()
     elif player1_cards[-1].value < player2_cards[-1].value:
-        player_two.add_cards(table)
+        player_two.add_cards(updated_table)
         if not is_game_over() and have_sufficient_cards(game_state='normal'):
             play_one_card()
     else:
         print('Entering war again')
         if not is_game_over() and have_sufficient_cards(game_state='war'):
-            play_war_card(table)
+            play_war_card(updated_table)
 
 
 def have_sufficient_cards(game_state):
@@ -74,10 +80,10 @@ def is_game_over():
 
 def edge_case_comparison():
     if len(player_one.cards) > len(player_two.cards):
-        print(f'Player two, you can\'t afford to go to war. You only have {len(player_two.cards)} cards')
+        print(f'Player two, you can\'t afford to go to war. You only have {len(player_two.cards)} cards left.')
         print(f'Player one wins with {len(player_one.cards)} cards!')
     else:
-        print(f'Player one, you can\'t afford to go to war. You only have {len(player_one.cards)} cards')
+        print(f'Player one, you can\'t afford to go to war. You only have {len(player_one.cards)} cards left')
         print(f'Player two wins with {len(player_two.cards)} cards!!')
 
 
