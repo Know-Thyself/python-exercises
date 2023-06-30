@@ -24,10 +24,10 @@ def play_one_card():
         else:
             is_war = True
             print('Entering war')
-            if have_sufficient_card(game_state='war'):
+            if have_sufficient_cards(game_state='war'):
                 play_war_card(cards_on_the_table)
             else:
-                can_afford_war()
+                edge_case_comparison()
 
 
 def play_war_card(table):
@@ -41,16 +41,24 @@ def play_war_card(table):
 
     if player1_cards[-1].value > player2_cards[-1].value:
         player_one.add_cards(table)
-        if not is_game_over() and have_sufficient_card(game_state='normal'):
+        if not is_game_over() and have_sufficient_cards(game_state='normal'):
             play_one_card()
     elif player1_cards[-1].value < player2_cards[-1].value:
         player_two.add_cards(table)
-        if not is_game_over() and have_sufficient_card(game_state='normal'):
+        if not is_game_over() and have_sufficient_cards(game_state='normal'):
             play_one_card()
     else:
         print('Entering war again')
-        if not is_game_over() and have_sufficient_card(game_state='war'):
+        if not is_game_over() and have_sufficient_cards(game_state='war'):
             play_war_card(table)
+
+
+def have_sufficient_cards(game_state):
+    match game_state:
+        case 'normal':
+            return len(player_one.cards) > 0 and len(player_two.cards) > 0
+        case 'war':
+            return len(player_one.cards) >= 5 and len(player_two.cards) >= 5
 
 
 def is_game_over():
@@ -64,21 +72,13 @@ def is_game_over():
         return False
 
 
-def have_sufficient_card(game_state):
-    match game_state:
-        case 'normal':
-            return len(player_one.cards) > 0 and len(player_two.cards) > 0
-        case 'war':
-            return len(player_one.cards) >= 5 and len(player_two.cards) >= 5
-
-
-def can_afford_war():
+def edge_case_comparison():
     if len(player_one.cards) > len(player_two.cards):
         print(f'Player two, you can\'t afford to go to war. You only have {len(player_two.cards)} cards')
-        print(f'Player one wins with {len(player_one.cards)} cars!')
+        print(f'Player one wins with {len(player_one.cards)} cards!')
     else:
         print(f'Player one, you can\'t afford to go to war. You only have {len(player_one.cards)} cards')
-        print(f'Player two wins with {len(player_two.cards)} cars!!')
+        print(f'Player two wins with {len(player_two.cards)} cards!!')
 
 
 if __name__ == '__main__':
