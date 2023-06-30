@@ -27,30 +27,27 @@ def new_game_setup():
         computer.add_card(dealt_cards[1])
     print(f'Computer has {computer.cards[-1]} and one more card')
     print(f'You have {user.cards[0]} and {user.cards[1]}')
-    total = calculate_total(user.cards)
-    print(f'Your cards\' sum is: {total}')
+    print(f'Your cards\' sum is: {user.value}')
     start_playing()
 
 
 def start_playing():
     while True:
-        check_for_blackjack()
+        if check_for_blackjack():
+            break
         user.adjust_for_ace()
         computer.adjust_for_ace()
         user_choice = input('Enter h for hit or s for stand: ')
         if user_choice == 'h':
             hit_or_stand('hit', user)
-            user_total = calculate_total(user.cards)
-            print('Your cards are: ')
-            for card in user.cards:
-                print(card)
-            print(f'Your new total is: {user_total}')
-            if user_total > 21:
+            print(f'Your cards are: {user}')
+            print(f'Your new total is: {user.value}')
+            if user.value > 21:
                 find_out_the_winner()
                 break
         else:
             hit_or_stand('stand', user)
-            while calculate_total(computer.cards) < 17:
+            while computer.value < 17:
                 hit_or_stand('hit', computer)
             else:
                 hit_or_stand('stand', computer)
@@ -62,64 +59,50 @@ def hit_or_stand(choice, player):
         case 'hit':
             player.add_card(deck_of_cards.hit())
         case 'stand':
-            total = calculate_total(player.cards)
             if player == user:
-                print('Your cards are: ')
-                for card in user.cards:
-                    print(card)
-                print(f'Your new total is: {total}')
+                print(f'Your cards are: \n{user}')
+                print(f'Your new total is: {player.value}')
             else:
-                print('Computer\'s cards are: ')
-                for card in player.cards:
-                    print(card)
-                print(f'Computer\'s new total is: {total}')
+                print(f'Computer\'s cards are: \n{computer}')
+                print(f'Computer\'s new total is: {player.value}')
                 find_out_the_winner()
 
 
 def check_for_blackjack():
-    user_total = calculate_total(user.cards)
-    computer_total = calculate_total(computer.cards)
-    if computer_total == 21:
-        print(f'Computer wins with a blackjack: {computer_total}')
+    if computer.value == 21:
+        print(f'Computer wins with a blackjack: {computer.value}')
         computer_chip.win_bet()
         user_chip.lose_bet()
         print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
         reset()
-    elif user_total == 21:
-        print(f'You win with a blackjack: {user_total}')
+        return True
+    elif user.value == 21:
+        print(f'You win with a blackjack: {user.value}')
         user_chip.win_bet()
         computer_chip.lose_bet()
         print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
         reset()
-
-
-def calculate_total(cards):
-    total = 0
-    for card in cards:
-        total += card.value
-    return total
+        return True
 
 
 def find_out_the_winner():
-    user_total = calculate_total(user.cards)
-    computer_total = calculate_total(computer.cards)
-    if computer_total > 21:
-        print(f'Computer busts. It has a total of {computer_total} You win')
+    if computer.value > 21:
+        print(f'Computer busts. It has a total of {computer.value} You win')
         user_chip.win_bet()
         computer_chip.lose_bet()
         print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
-    elif user_total > 21:
-        print(f'Computer wins! You went over 21. Your total was {user_total}')
+    elif user.value > 21:
+        print(f'Computer wins! You went over 21. Your total was {user.value}')
         computer_chip.win_bet()
         user_chip.lose_bet()
         print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
-    elif computer_total > user_total:
-        print(f'Computer wins {computer_total} to {user_total}')
+    elif computer.value > user.value:
+        print(f'Computer wins {computer.value} to {user.value}')
         computer_chip.win_bet()
         user_chip.lose_bet()
         print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
-    elif user_total > computer_total:
-        print(f'You win {user_total} to {computer_total}')
+    elif user.value > computer.value:
+        print(f'You win {user.value} to {computer.value}')
         user_chip.win_bet()
         computer_chip.lose_bet()
         print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')

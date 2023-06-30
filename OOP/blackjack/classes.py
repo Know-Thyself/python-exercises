@@ -27,6 +27,12 @@ class Deck:
                 card = Card(suit, rank)
                 self.deck.append(card)
 
+    def __str__(self):
+        deck_comp = ''
+        for card in self.deck:
+            deck_comp + '\n' + card.__str__()
+        return deck_comp
+
     def get_all_cards(self):
         cards = []
         for card in self.deck:
@@ -43,7 +49,7 @@ class Deck:
         return cards
 
     def hit(self):
-        return self.deck.pop(0)
+        return self.deck.pop()
 
     def reset(self):
         self.__init__()
@@ -51,27 +57,30 @@ class Deck:
 
 class Hand:
     def __init__(self):
-        self.cards = []  # start with an empty list as we did in the Deck class
-        self.value = 0  # start with zero value
-        self.aces = 0  # add an attribute to keep track of aces
+        self.cards = []
+        self.value = 0
+        self.aces = 0
 
     def add_card(self, card):
         self.cards.append(card)
-        self.value = values[card.rank]
+        self.value += values[card.rank]
         for card in self.cards:
             if card.rank == 'Ace':
                 self.aces += 1
+
+    def __str__(self):
+        card_comp = ''
+        for card in self.cards:
+            card_comp += '\n' + card.__str__()
+        return card_comp
 
     def get_value(self):
         return self.value
 
     def adjust_for_ace(self):
-        sum_total = 0
-        for card in self.cards:
-            sum_total += card.value
-        for card in self.cards:
-            if sum_total > 21 and card.rank == 'Ace':
-                card.value = 1
+        while self.value > 21 and self.aces:
+            self.value -= 10
+            self.aces -= 1
 
     def reset(self):
         self.__init__()
