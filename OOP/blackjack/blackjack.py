@@ -4,8 +4,7 @@ deck_of_cards = Deck()
 deck_of_cards.shuffle()
 user = Hand()
 computer = Hand()
-user_chip = Chips()
-computer_chip = Chips()
+chips = Chips()
 
 
 def take_bet():
@@ -15,11 +14,11 @@ def take_bet():
         print('Please make sure to enter a valid number.')
         take_bet()
     else:
-        user_chip.place_bet(bet)
-        computer_chip.place_bet(bet)
+        chips.place_bet(bet)
 
 
 def new_game_setup():
+    print('\nWelcome to Blackjack! \n')
     take_bet()
     for _ in range(2):
         dealt_cards = deck_of_cards.deal()
@@ -40,8 +39,6 @@ def start_playing():
         user_choice = input('Enter h for hit or s for stand: ')
         if user_choice == 'h':
             hit_or_stand('hit', user)
-            print(f'Your cards are: {user}')
-            print(f'Your new total is: {user.value}')
             if user.value > 21:
                 find_out_the_winner()
                 break
@@ -58,11 +55,11 @@ def hit_or_stand(choice, player):
     match choice:
         case 'hit':
             player.add_card(deck_of_cards.hit())
-        case 'stand':
             if player == user:
                 print(f'Your cards are: \n{user}')
                 print(f'Your new total is: {player.value}')
-            else:
+        case 'stand':
+            if player == computer:
                 print(f'Computer\'s cards are: \n{computer}')
                 print(f'Computer\'s new total is: {player.value}')
                 find_out_the_winner()
@@ -71,43 +68,37 @@ def hit_or_stand(choice, player):
 def check_for_blackjack():
     if computer.value == 21:
         print(f'Computer wins with a blackjack: {computer.value}')
-        computer_chip.win_bet()
-        user_chip.lose_bet()
-        print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
+        chips.lose_bet()
+        print(f'Total chips => {chips.total}')
         reset()
         return True
     elif user.value == 21:
         print(f'You win with a blackjack: {user.value}')
-        user_chip.win_bet()
-        computer_chip.lose_bet()
-        print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
+        chips.win_bet()
+        print(f'Total chips => {chips.total}')
         reset()
         return True
 
 
 def find_out_the_winner():
     if computer.value > 21:
-        print(f'Computer busts. It has a total of {computer.value} You win')
-        user_chip.win_bet()
-        computer_chip.lose_bet()
-        print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
+        print(f'Computer busts. It has a total of {computer.value} You win!')
+        chips.win_bet()
+        print(f'Total chips => {chips.total}')
     elif user.value > 21:
         print(f'Computer wins! You went over 21. Your total was {user.value}')
-        computer_chip.win_bet()
-        user_chip.lose_bet()
-        print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
+        chips.lose_bet()
+        print(f'Total chips => {chips.total}')
     elif computer.value > user.value:
         print(f'Computer wins {computer.value} to {user.value}')
-        computer_chip.win_bet()
-        user_chip.lose_bet()
-        print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
+        chips.lose_bet()
+        print(f'Total chips => {chips.total}')
     elif user.value > computer.value:
         print(f'You win {user.value} to {computer.value}')
-        user_chip.win_bet()
-        computer_chip.lose_bet()
-        print(f'Total chips => You: {user_chip.total}, Computer: {computer_chip.total}')
+        chips.win_bet()
+        print(f'Total chips => {chips.total}')
     else:
-        print('It is a draw!')
+        print('It is a tie!')
     reset()
 
 
@@ -116,8 +107,7 @@ def reset():
     if play_again == 'y':
         user.reset()
         computer.reset()
-        user_chip.bet = 0
-        computer_chip.bet = 0
+        chips.bet = 0
         deck_of_cards.reset()
         deck_of_cards.shuffle()
         new_game_setup()

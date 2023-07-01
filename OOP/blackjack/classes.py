@@ -74,9 +74,6 @@ class Hand:
             card_comp += '\n' + card.__str__()
         return card_comp
 
-    def get_value(self):
-        return self.value
-
     def adjust_for_ace(self):
         while self.value > 21 and self.aces:
             self.value -= 10
